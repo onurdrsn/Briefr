@@ -11,7 +11,7 @@
   "dependencies": {
     "@briefr/types": "workspace:*",
     "@neondatabase/serverless": "^0.10.4",
-    "drizzle-orm": "^0.38.4"
+    "drizzle-orm": "^0.45.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250204.0",
