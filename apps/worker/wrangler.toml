@@ -1,0 +1,38 @@
+name = "briefr-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[dev]
+port = 8787
+inspector_port = 9229
+
+[durable_objects]
+bindings = [
+  { name = "CHAT_STREAM_DO", class_name = "ChatStreamDO" }
+]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["ChatStreamDO"]
+
+[[vectorize]]
+binding = "BRIEFR_VECTORIZE"
+index_name = "briefr-memory"
+
+[ai]
+binding = "BRIEFR_AI"
+
+[[kv_namespaces]]
+binding = "BRIEFR_KV"
+id = "bbd410a15a2b4630b271d704058ef93d"
+preview_id = "bbd410a15a2b4630b271d704058ef93d"
+
+[[r2_buckets]]
+binding = "BRIEFR_R2"
+bucket_name = "briefr-uploads"
+preview_bucket_name = "briefr-uploads"
+
+[[queues.producers]]
+binding = "INGESTION_QUEUE"
+queue = "briefr-ingestion"

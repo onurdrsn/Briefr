@@ -1,0 +1,26 @@
+name = "briefr-ingestion"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[dev]
+port = 8788
+inspector_port = 9231
+
+[[queues.consumers]]
+queue = "briefr-ingestion"
+max_batch_size = 5
+max_batch_timeout = 10
+max_retries = 3
+dead_letter_queue = "briefr-ingestion-dlq"
+
+[[vectorize]]
+binding = "BRIEFR_VECTORIZE"
+index_name = "briefr-memory"
+
+[ai]
+binding = "BRIEFR_AI"
+
+[[r2_buckets]]
+binding = "BRIEFR_R2"
+bucket_name = "briefr-uploads"
