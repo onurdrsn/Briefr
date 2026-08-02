@@ -21,7 +21,10 @@ const app = new Hono<{ Bindings: CloudflareBindings }>()
 
 app.use('*', logger())
 app.use('*', cors({
-  origin: ['https://briefr.app', 'http://localhost:5173', 'http://localhost:3000'],
+  origin: (origin, c) => {
+    const allowed = [c.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000'].filter(Boolean)
+    return allowed.includes(origin) ? origin : ''
+  },
   credentials: true,
   allowHeaders: ['Content-Type', 'Authorization'],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
