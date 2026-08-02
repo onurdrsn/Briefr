@@ -62,8 +62,9 @@ export const sourceRouter = router({
       // Execute ingestion directly for instant processing and immediate status update
       try {
         await processIngestionDirectly(ctx, source.id, input.projectId)
-      } catch (err) {
+      } catch (err: any) {
         console.error('Direct ingestion error:', err)
+        throw new Error(`İngestion hatası: ${err?.message ?? err}`)
       }
 
       await ctx.db.update(projects).set({
@@ -116,8 +117,9 @@ export const sourceRouter = router({
       // Execute ingestion directly for instant processing and immediate status update
       try {
         await processIngestionDirectly(ctx, source.id, source.projectId)
-      } catch (err) {
+      } catch (err: any) {
         console.error('Direct resync ingestion error:', err)
+        throw new Error(`Yeniden senkronizasyon hatası: ${err?.message ?? err}`)
       }
 
       return { ok: true }

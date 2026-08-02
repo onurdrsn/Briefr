@@ -84,7 +84,9 @@ export async function processIngestionDirectly(ctx: any, sourceId: string, proje
           })
           await db.update(chunks).set({ status: 'embedded', embeddingModel: '@cf/baai/bge-m3' }).where(eq(chunks.id, chunkId))
         } catch (embedErr) {
-          console.error('Vector embedding warning:', embedErr)
+          console.error('Vector embedding failed:', embedErr)
+          // Status remains 'pending' — re-throw so the job is marked failed
+          throw embedErr
         }
       }
 
