@@ -14,7 +14,7 @@
     "@hono/trpc-server": "^0.4.2",
     "@neondatabase/serverless": "^0.10.4",
     "@trpc/server": "^11.0.0-rc.820",
-    "drizzle-orm": "^0.38.4",
+    "drizzle-orm": "^0.45.2",
     "hono": "^4.6.20",
     "nanoid": "^5.0.9",
     "resend": "^4.1.2",
