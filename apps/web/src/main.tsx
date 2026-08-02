@@ -22,7 +22,7 @@ function Root() {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: '/trpc',
+          url: `${import.meta.env.VITE_API_URL || ''}/trpc`,
           async fetch(url, options) {
             const res = await fetch(url, options)
             const contentType = res.headers.get('content-type') || ''
