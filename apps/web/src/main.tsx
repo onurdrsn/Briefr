@@ -6,6 +6,7 @@ import { httpBatchLink } from '@trpc/client'
 import { trpc } from './lib/trpc'
 import { useAuthStore } from './lib/store'
 import { App } from './App'
+import { LanguageProvider } from './context/LanguageContext'
 import './app.css'
 
 function Root() {
@@ -59,9 +60,11 @@ function Root() {
     <React.StrictMode>
       <trpc.Provider client={trpcClient} queryClient={queryClient}>
         <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <LanguageProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </LanguageProvider>
         </QueryClientProvider>
       </trpc.Provider>
     </React.StrictMode>

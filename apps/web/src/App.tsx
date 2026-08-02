@@ -13,6 +13,10 @@ import { WorkspaceSettings } from './pages/settings/WorkspaceSettings'
 import { AccountSettings } from './pages/settings/AccountSettings'
 import { Billing } from './pages/billing/Billing'
 import { AIUsagePage } from './pages/AIUsagePage'
+import { TermsOfService } from './pages/public/TermsOfService'
+import { PrivacyPolicy } from './pages/public/PrivacyPolicy'
+import { SupportPage } from './pages/public/SupportPage'
+import { SlackLandingPage } from './pages/public/SlackLandingPage'
 
 function ProtectedLayout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, user } = useAuth()
@@ -35,9 +39,14 @@ function ProtectedLayout({ children }: { children: React.ReactNode }) {
 export function App() {
   return (
     <Routes>
+      {/* Public Pages */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/onboarding" element={<OnboardingWizard />} />
+      <Route path="/tos" element={<TermsOfService />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/support" element={<SupportPage />} />
+      <Route path="/superserviceco" element={<SlackLandingPage />} />
 
       <Route
         path="/dashboard"
