@@ -20,7 +20,7 @@ interface EmbedAndStoreParams {
 export async function embedAndStore(params: EmbedAndStoreParams): Promise<void> {
   const { env, chunkId, content, namespace, metadata } = params
 
-  // BGE-M3 embedding (768 dim, multilingual)
+  // BGE-M3 embedding (1024 dim, multilingual)
   const embedResult = await env.BRIEFR_AI.run('@cf/baai/bge-m3', {
     text: [content],
   }) as { data: number[][] }
