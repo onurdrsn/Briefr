@@ -51,6 +51,12 @@ build-web:
 build-worker:
 	$(PNPM) --filter @briefr/worker build
 
+# ─── DEPLOY ───────────────────────────────────────────────────────────────────
+
+# Deploy worker backend to Cloudflare
+deploy-worker:
+	$(PNPM) --filter @briefr/worker run deploy
+
 # ─── CLEAN ────────────────────────────────────────────────────────────────────
 
 # Remove node_modules, build artifacts, and turbo cache
