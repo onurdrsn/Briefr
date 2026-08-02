@@ -28,7 +28,7 @@ export function Sidebar() {
       <div className="p-4 space-y-6">
         {/* Brand logo */}
         <div className="flex items-center gap-3 px-2">
-          <img src="/logo-icon.png" alt="Briefr Logo" className="w-9 h-9 rounded-xl object-contain shadow-lg shadow-purple-600/30 border border-purple-500/20" />
+          <img src="/logo-icon.svg" alt="Briefr Logo" className="w-9 h-9 rounded-xl object-contain shadow-lg shadow-purple-600/30 border border-purple-500/20" />
           <div>
             <h1 className="font-bold text-slate-100 text-lg leading-tight tracking-tight">Briefr</h1>
             <p className="text-xs text-purple-400 font-medium truncate max-w-[120px]">{workspace?.name || 'Workspace'}</p>
