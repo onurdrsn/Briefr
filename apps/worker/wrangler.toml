@@ -14,7 +14,7 @@ bindings = [
 
 [[migrations]]
 tag = "v1"
-new_classes = ["ChatStreamDO"]
+new_sqlite_classes = ["ChatStreamDO"]
 
 [[vectorize]]
 binding = "BRIEFR_VECTORIZE"
