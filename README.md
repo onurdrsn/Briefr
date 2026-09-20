@@ -158,7 +158,7 @@ Kullanıcı Sorusu
 ### 1. Depoyu Klonlayın
 
 ```bash
-git clone https://github.com/<kullanici-adiniz>/briefr.git
+git clone https://github.com/onurdrsn/briefr.git
 cd briefr
 ```
 
